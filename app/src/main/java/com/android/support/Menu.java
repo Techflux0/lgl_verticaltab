@@ -154,21 +154,19 @@ public class Menu {
 
     native boolean IsGameLibLoaded();
 
-    //Here we write the code for our Menu
-    // Reference: https://www.androidhive.info/2016/11/android-floating-widget-like-facebook-chat-head/
     public Menu(Context context) {
 
         getContext = context;
         Preferences.context = context;
-        rootFrame = new FrameLayout(context); // Global markup
+        rootFrame = new FrameLayout(context);
         rootFrame.setOnTouchListener(onTouchListener());
-        mRootContainer = new RelativeLayout(context); // Markup on which two markups of the icon and the menu itself will be placed
-        mCollapsed = new RelativeLayout(context); // Markup of the icon (when the menu is minimized)
+        mRootContainer = new RelativeLayout(context); 
+        mCollapsed = new RelativeLayout(context); 
         mCollapsed.setVisibility(View.VISIBLE);
         mCollapsed.setAlpha(ICON_ALPHA);
 
         //********** The box of the mod menu **********
-        mExpanded = new LinearLayout(context); // Menu markup (when the menu is expanded)
+        mExpanded = new LinearLayout(context);
         mExpanded.setVisibility(View.GONE);
         mExpanded.setBackgroundColor(MENU_BG_COLOR);
         mExpanded.setOrientation(LinearLayout.VERTICAL);
@@ -178,9 +176,8 @@ public class Menu {
         gdMenuBody.setCornerRadius(MENU_CORNER); //Set corner
         gdMenuBody.setColor(MENU_BG_COLOR); //Set background color
         gdMenuBody.setStroke(5,-1); //Set border
-        mExpanded.setBackground(gdMenuBody); //Apply GradientDrawable to it
+        mExpanded.setBackground(gdMenuBody); 
 
-        //********** The icon to open mod menu **********
         startimage = new ImageView(context);
         startimage.setLayoutParams(new RelativeLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
         int applyDimension = (int) TypedValue.applyDimension(1, ICON_SIZE, context.getResources().getDisplayMetrics()); //Icon size
